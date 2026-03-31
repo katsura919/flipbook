@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CoverPage from "./pages/CoverPage";
-import DestinationPage from "./pages/DestinationPage";
-import JournalPage from "./pages/JournalPage";
+import InteractiveDestinationPage from "./pages/InteractiveDestinationPage";
+import InteractiveJournalPage from "./pages/InteractiveJournalPage";
 
 const TOTAL_PAGES = 6;
 
@@ -60,46 +60,12 @@ export default function FlipBook() {
             <div><CoverPage /></div>
 
             {/* Spread 1 */}
-            <div>
-              <DestinationPage
-                image="https://picsum.photos/seed/paris/360/540"
-                location="Paris"
-                country="France"
-                date="June 2024"
-                title="City of Lights"
-                description="Wandering cobblestone streets, sipping espresso by the Seine, and watching the Eiffel Tower shimmer at dusk."
-              />
-            </div>
-            <div>
-              <JournalPage
-                image="https://picsum.photos/seed/eiffel/360/240"
-                imageCaption="Eiffel Tower at dusk"
-                heading="First Impressions"
-                body="Nothing prepares you for the moment Paris reveals itself — the grand boulevards, the smell of fresh bread, the hum of a city that has always known it is beautiful."
-                tag="Day 1"
-              />
-            </div>
+            <div><InteractiveDestinationPage pageId="spread1-dest" /></div>
+            <div><InteractiveJournalPage pageId="spread1-journal" /></div>
 
             {/* Spread 2 */}
-            <div>
-              <DestinationPage
-                image="https://picsum.photos/seed/santorini/360/540"
-                location="Santorini"
-                country="Greece"
-                date="August 2024"
-                title="Where the Sea Meets the Sky"
-                description="White-washed walls glowing in the afternoon heat, and a horizon that stretches into forever."
-              />
-            </div>
-            <div>
-              <JournalPage
-                image="https://picsum.photos/seed/greek-coast/360/240"
-                imageCaption="Oia at golden hour"
-                heading="Chasing Sunsets"
-                body="Every evening the whole village gathers at the cliffside. No phones, no noise — just the slow descent of the sun into the Aegean and a collective exhale."
-                tag="Day 4"
-              />
-            </div>
+            <div><InteractiveDestinationPage pageId="spread2-dest" /></div>
+            <div><InteractiveJournalPage pageId="spread2-journal" /></div>
 
             {/* Back Cover */}
             <div style={{ backgroundColor: "#0f2027" }}>
