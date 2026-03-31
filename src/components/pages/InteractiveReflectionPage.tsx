@@ -66,6 +66,9 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
       className="w-full h-full relative overflow-hidden flex flex-col"
       style={{ background: "linear-gradient(160deg, #fff8e1, #fff3e0, #fce4ec)" }}
     >
+      {/* Top color strip */}
+      <div className="w-full h-1 shrink-0" style={{ background: "linear-gradient(90deg, #ff8a65, #ff4081)" }} />
+
       {/* Dot pattern */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none"
@@ -75,29 +78,37 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
         }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-8 py-6 gap-3">
+      <div className="relative z-10 flex flex-col h-full px-7 py-5 gap-3">
         {/* Header */}
-        <div className="text-center">
+        <div className="flex items-center gap-2">
           <span className="text-2xl">🪞</span>
-          <h2 className="text-lg font-bold mt-0.5" style={{ color: "#bf360c", fontFamily: "Georgia, serif" }}>
-            Reflection
-          </h2>
-          <div className="flex items-center gap-2 mx-auto w-28 mt-1">
-            <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.25)" }} />
-            <span style={{ color: "#ff8a65", fontSize: "10px" }}>✦</span>
-            <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.25)" }} />
+          <div>
+            <h2 className="text-xl font-bold" style={{ color: "#bf360c", fontFamily: "Georgia, serif" }}>
+              Reflection
+            </h2>
+            <p className="text-xs" style={{ color: "#ff8a65" }}>Pause and think</p>
           </div>
         </div>
 
-        {/* Prompts — editable */}
+        {/* Divider */}
+        <div className="flex items-center gap-2">
+          <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.2)" }} />
+          <span style={{ color: "#ff8a65", fontSize: "10px" }}>✦</span>
+          <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.2)" }} />
+        </div>
+
+        {/* 6 Prompts */}
         <div className="flex flex-col gap-1.5">
           {prompts.map((field, i) => (
             <div
               key={field}
               className="rounded-xl px-3 py-1.5 flex items-center gap-2"
-              style={{ background: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,138,101,0.2)" }}
+              style={{ background: "rgba(255,255,255,0.65)", border: "1px solid rgba(255,138,101,0.25)" }}
             >
-              <span className="text-xs font-bold shrink-0" style={{ color: "#ff8a65", minWidth: "14px" }}>
+              <span
+                className="text-xs font-bold shrink-0"
+                style={{ color: "#ff8a65", minWidth: "14px" }}
+              >
                 {i + 1}.
               </span>
               <input
@@ -129,7 +140,7 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
         </div>
 
         <p className="absolute bottom-4 right-6 text-xs" style={{ color: "#d7b8a0", fontFamily: "Georgia, serif" }}>
-          — 04 —
+          — 07 —
         </p>
       </div>
     </div>

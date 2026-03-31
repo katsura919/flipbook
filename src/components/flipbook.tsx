@@ -7,10 +7,12 @@ import PlaybookCoverPage from "./pages/PlaybookCoverPage";
 import PlaybookBackCover from "./pages/PlaybookBackCover";
 import InteractiveWelcomePage from "./pages/InteractiveWelcomePage";
 import InteractiveSnapshotPage from "./pages/InteractiveSnapshotPage";
+import InteractiveHealthTrackerPage from "./pages/InteractiveHealthTrackerPage";
+import InteractiveHabitsPage from "./pages/InteractiveHabitsPage";
 import InteractiveInsightsPage from "./pages/InteractiveInsightsPage";
 import InteractiveReflectionPage from "./pages/InteractiveReflectionPage";
 
-const TOTAL_PAGES = 6;
+const TOTAL_PAGES = 8;
 
 export default function FlipBook() {
   const bookRef = useRef<any>(null);
@@ -92,6 +94,8 @@ export default function FlipBook() {
                 <div><PlaybookCoverPage /></div>
                 <div><InteractiveWelcomePage pageId="wellness-welcome" /></div>
                 <div><InteractiveSnapshotPage pageId="wellness-snapshot" /></div>
+                <div><InteractiveHealthTrackerPage pageId="wellness-tracker" /></div>
+                <div><InteractiveHabitsPage pageId="wellness-habits" /></div>
                 <div><InteractiveInsightsPage pageId="wellness-insights" /></div>
                 <div><InteractiveReflectionPage pageId="wellness-reflection" /></div>
                 <div><PlaybookBackCover /></div>
