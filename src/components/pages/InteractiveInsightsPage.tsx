@@ -22,6 +22,7 @@ export default function InteractiveInsightsPage({ pageId }: { pageId: string }) 
   const containerRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<PageData>(defaults);
   const [loaded, setLoaded] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [ratings, setRatings] = useState({ food: 0, mood: 0, exercise: 0 });
 
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function InteractiveInsightsPage({ pageId }: { pageId: string }) 
       } catch {}
     }
     setLoaded(true);
+    requestAnimationFrame(() => setVisible(true));
   }, [pageId]);
 
   useEffect(() => {
@@ -73,7 +75,11 @@ export default function InteractiveInsightsPage({ pageId }: { pageId: string }) 
     <div
       ref={containerRef}
       className="w-full h-full relative overflow-hidden flex flex-col"
-      style={{ background: "linear-gradient(160deg, #f3e5f5, #e8eaf6, #e3f2fd)" }}
+      style={{
+        background: "linear-gradient(160deg, #f3e5f5, #e8eaf6, #e3f2fd)",
+        opacity: visible ? 1 : 0,
+        transition: "opacity 0.4s ease",
+      }}
     >
       {/* Top color strip */}
       <div className="w-full h-1 shrink-0" style={{ background: "linear-gradient(90deg, #ab47bc, #1e88e5)" }} />

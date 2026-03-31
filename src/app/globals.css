@@ -184,3 +184,29 @@
 ::-webkit-scrollbar{
   display: none;
 }
+
+/* ── Print styles ───────────────────────────────────────────────── */
+@media print {
+  /* Hide navigation buttons and page chrome */
+  nav, button, .flipbook-nav { display: none !important; }
+
+  body { background: white !important; }
+
+  /* Each flipbook page prints as its own page */
+  .stf__page, [class*="page"] {
+    page-break-after: always;
+    break-after: page;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh;
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Force backgrounds to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
