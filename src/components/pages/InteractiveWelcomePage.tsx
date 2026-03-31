@@ -105,13 +105,7 @@ export default function InteractiveWelcomePage({ pageId }: { pageId: string }) {
         transition: "opacity 0.4s ease",
       }}
     >
-      <div
-        className="w-full h-[3px] shrink-0"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), var(--brand-pale-gold), var(--brand-gold), transparent)",
-        }}
-      />
+
 
       <div
         className="absolute inset-0 pointer-events-none"

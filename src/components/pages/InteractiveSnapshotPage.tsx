@@ -152,13 +152,6 @@ export default function InteractiveSnapshotPage({ pageId }: { pageId: string }) 
         transition: "opacity 0.4s ease",
       }}
     >
-      <div
-        className="w-full h-[3px] shrink-0"
-        style={{
-          background:
-            "linear-gradient(90deg, var(--brand-forest-green), var(--brand-gold), var(--brand-deep-green))",
-        }}
-      />
 
       <div
         className="absolute inset-0 pointer-events-none"

@@ -27,13 +27,7 @@ export default function PlaybookCoverPage() {
         transition: "opacity 0.45s ease",
       }}
     >
-      <div
-        className="w-full h-[3px] absolute top-0 left-0 z-20"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), var(--brand-pale-gold), var(--brand-gold), transparent)",
-        }}
-      />
+
 
       <div
         className="absolute inset-0"

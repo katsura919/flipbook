@@ -1,80 +1,174 @@
 "use client";
 
+import Image from "next/image";
+import { Great_Vibes } from "next/font/google";
 import { useEffect, useState } from "react";
+
+const accentScript = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function PlaybookBackCover() {
   const [visible, setVisible] = useState(false);
-  useEffect(() => { requestAnimationFrame(() => setVisible(true)); }, []);
+
+  useEffect(() => {
+    requestAnimationFrame(() => setVisible(true));
+  }, []);
 
   return (
     <div
       className="w-full h-full relative overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #1a3a2a, #2d5a3d, #1a3a2a)",
+        background:
+          "linear-gradient(165deg, var(--brand-deep-green) 0%, var(--brand-forest-green) 50%, #14291f 100%)",
         opacity: visible ? 1 : 0,
-        transition: "opacity 0.4s ease",
+        transition: "opacity 0.45s ease",
       }}
     >
-      <div className="w-full h-1 absolute top-0 left-0 z-20" style={{ background: "linear-gradient(90deg, #43a047, #66bb6a, #90bc76)" }} />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 20%, rgba(232, 213, 163, 0.2) 0%, rgba(232, 213, 163, 0) 60%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(122deg, rgba(232, 213, 163, 0.08) 0%, rgba(232, 213, 163, 0) 42%), linear-gradient(302deg, rgba(250, 247, 240, 0.06) 0%, rgba(250, 247, 240, 0) 36%)",
+        }}
+      />
+      <div
+        className="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl"
+        style={{ background: "rgba(201, 168, 76, 0.15)" }}
+      />
+      <div
+        className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl"
+        style={{ background: "rgba(232, 213, 163, 0.1)" }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.58) 100%)",
+        }}
+      />
 
-      {/* Soft radial glow */}
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 40% 60%, rgba(144,188,118,0.15) 0%, transparent 70%)" }} />
-      {/* Grid lines */}
-      <div className="absolute inset-0 opacity-[0.07]" style={{
-        backgroundImage: "linear-gradient(rgba(165,214,167,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(165,214,167,0.8) 1px, transparent 1px)",
-        backgroundSize: "36px 36px",
-      }} />
-      {/* Vignette */}
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)" }} />
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-12 px-10">
+        <div className="flex flex-col items-center gap-3">
+          <div
+            className="relative w-[78px] h-[78px] rounded-full p-[7px] border"
+            style={{
+              borderColor: "rgba(232, 213, 163, 0.55)",
+              background:
+                "radial-gradient(circle at 50% 30%, rgba(250, 247, 240, 0.22), rgba(20, 41, 31, 0.85))",
+              boxShadow: "0 10px 24px rgba(0, 0, 0, 0.35)",
+            }}
+          >
+            <div
+              className="w-full h-full rounded-full overflow-hidden"
+              style={{ background: "rgba(250, 247, 240, 0.96)" }}
+            >
+              <Image
+                src="/assets/logo.png"
+                alt="Peace-Driven Leader logo"
+                fill
+                className="object-contain p-2"
+                priority
+              />
+            </div>
+          </div>
 
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-14 px-10">
-        {/* Top ornament */}
-        <div className="flex items-center gap-3 w-36">
-          <div className="flex-1 h-px" style={{ background: "#90bc76" }} />
-          <span style={{ color: "#90bc76", fontSize: "10px" }}>✦</span>
-          <div className="flex-1 h-px" style={{ background: "#90bc76" }} />
+          <p
+            className="text-[10px] uppercase tracking-[0.3em] font-semibold text-center"
+            style={{ color: "var(--brand-pale-gold)" }}
+          >
+            Peace-Driven Leadership
+          </p>
         </div>
 
-        {/* Center */}
-        <div className="flex flex-col items-center gap-5 text-center">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style={{ opacity: 0.75 }}>
-            <circle cx="20" cy="20" r="18" stroke="#90bc76" strokeWidth="1" />
-            <circle cx="20" cy="20" r="8" stroke="#90bc76" strokeWidth="0.8" fill="none" />
-            <line x1="20" y1="12" x2="20" y2="28" stroke="#90bc76" strokeWidth="0.9" />
-            <line x1="20" y1="20" x2="14" y2="26" stroke="#90bc76" strokeWidth="0.9" />
-            <line x1="20" y1="20" x2="26" y2="26" stroke="#90bc76" strokeWidth="0.9" />
-            <circle cx="20" cy="20" r="1.5" fill="#90bc76" />
-          </svg>
-
-          <p className="text-base font-semibold" style={{ color: "#a5d6a7", fontFamily: "Georgia, serif", letterSpacing: "0.05em" }}>
-            The Journey Continues
+        <div className="flex flex-col items-center gap-4 text-center">
+          <p
+            className={`${accentScript.className} text-[40px] leading-none`}
+            style={{ color: "var(--brand-pale-gold)" }}
+          >
+            Thank You
           </p>
-          <div className="w-12 h-px" style={{ background: "#4e6e4e" }} />
-          <p className="text-xs leading-relaxed max-w-[200px]"
-            style={{ color: "#5a7a5a", fontFamily: "Georgia, serif", fontStyle: "italic" }}>
-            "Peace is not the absence of challenges, but the presence of purpose."
+
+          <div className="flex items-center gap-3 w-44">
+            <div
+              className="flex-1 h-px"
+              style={{ background: "rgba(232, 213, 163, 0.7)" }}
+            />
+            <span style={{ color: "var(--brand-gold)", fontSize: "11px" }}>*</span>
+            <div
+              className="flex-1 h-px"
+              style={{ background: "rgba(232, 213, 163, 0.7)" }}
+            />
+          </div>
+
+          <p
+            className="text-sm leading-relaxed max-w-[220px]"
+            style={{
+              color: "rgba(250, 247, 240, 0.9)",
+              fontFamily: "var(--font-serif)",
+            }}
+          >
+            The journey continues one intentional day at a time.
+          </p>
+
+          <p
+            className="text-[11px] uppercase tracking-[0.16em]"
+            style={{ color: "rgba(232, 213, 163, 0.82)" }}
+          >
+            Keep Leading with Peace
           </p>
         </div>
 
-        {/* Bottom */}
         <div className="flex flex-col items-center gap-2">
-          <p className="text-xs uppercase tracking-[0.25em]" style={{ color: "#4e6e4e" }}>
+          <p
+            className="text-[10px] text-center uppercase"
+            style={{
+              color: "rgba(232, 213, 163, 0.72)",
+              letterSpacing: "0.15em",
+            }}
+          >
             Peace-Driven Leader Playbook
           </p>
-          <div className="flex items-center gap-3 w-36">
-            <div className="flex-1 h-px" style={{ background: "#2d4a2d" }} />
-            <span style={{ color: "#4e6e4e", fontSize: "10px" }}>✦</span>
-            <div className="flex-1 h-px" style={{ background: "#2d4a2d" }} />
-          </div>
+          <p
+            className={`${accentScript.className} text-[24px] leading-none`}
+            style={{ color: "var(--brand-pale-gold)" }}
+          >
+            See You Next Week
+          </p>
         </div>
       </div>
 
-      {/* Corner ornaments */}
-      {["top-4 left-4", "top-4 right-4 rotate-90", "bottom-4 left-4 -rotate-90", "bottom-4 right-4 rotate-180"].map((pos, i) => (
-        <svg key={i} width="22" height="22" viewBox="0 0 24 24" className={`absolute ${pos} opacity-25`} fill="none">
-          <path d="M2 2 L12 2 L2 12 Z" fill="none" stroke="#90bc76" strokeWidth="1" />
-          <path d="M2 2 L2 8" stroke="#90bc76" strokeWidth="1" />
-          <path d="M2 2 L8 2" stroke="#90bc76" strokeWidth="1" />
+      {[
+        "top-4 left-4",
+        "top-4 right-4 rotate-90",
+        "bottom-4 left-4 -rotate-90",
+        "bottom-4 right-4 rotate-180",
+      ].map((pos, i) => (
+        <svg
+          key={i}
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          className={`absolute ${pos} opacity-50`}
+          fill="none"
+        >
+          <path
+            d="M2 2 L12 2 L2 12 Z"
+            fill="none"
+            stroke="var(--brand-pale-gold)"
+            strokeWidth="1"
+          />
+          <path d="M2 2 L2 8" stroke="var(--brand-pale-gold)" strokeWidth="1" />
+          <path d="M2 2 L8 2" stroke="var(--brand-pale-gold)" strokeWidth="1" />
         </svg>
       ))}
     </div>
