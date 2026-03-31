@@ -161,7 +161,7 @@ export default function InteractiveSnapshotPage({ pageId }: { pageId: string }) 
         }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-8 py-4 gap-2.5">
+      <div className="relative z-10 flex flex-col h-full px-8 py-4 pb-9 gap-2.5">
         <div className="flex items-start justify-between">
           <div>
             <p

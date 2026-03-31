@@ -131,7 +131,7 @@ export default function InteractiveInsightsPage({ pageId }: { pageId: string }) 
         }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-7 py-5 gap-3">
+      <div className="relative z-10 flex flex-col h-full px-7 py-5 pb-9 gap-3">
         <div>
           <p
             className={`${accentScript.className} text-[30px] leading-none`}
