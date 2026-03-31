@@ -2,7 +2,7 @@ import FlipBook from "@/components/flipbook";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background overflow-hidden">
+    <main className="min-h-screen bg-black overflow-hidden">
       <FlipBook />
     </main>
   );
