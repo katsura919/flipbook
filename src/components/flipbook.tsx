@@ -85,7 +85,7 @@ export default function FlipBook() {
                 clickEventForward={false}
                 useMouseEvents={true}
                 swipeDistance={30}
-                showPageCorners={true}
+                showPageCorners={false}
                 disableFlipByClick={false}
                 onFlip={handleFlip}
                 style={{}}
