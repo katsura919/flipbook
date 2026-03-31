@@ -22,149 +22,146 @@ export default function PlaybookCoverPage() {
       className="w-full h-full relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(165deg, var(--brand-deep-green) 0%, var(--brand-forest-green) 50%, #14291f 100%)",
+          "radial-gradient(140% 100% at 50% 0%, #fffaf1 0%, #f5ecdb 58%, #ecdfc8 100%)",
         opacity: visible ? 1 : 0,
         transition: "opacity 0.45s ease",
       }}
     >
-
-
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 20%, rgba(232, 213, 163, 0.2) 0%, rgba(232, 213, 163, 0) 60%)",
-        }}
-      />
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(122deg, rgba(232, 213, 163, 0.08) 0%, rgba(232, 213, 163, 0) 42%), linear-gradient(302deg, rgba(250, 247, 240, 0.06) 0%, rgba(250, 247, 240, 0) 36%)",
+            "linear-gradient(125deg, rgba(232, 213, 163, 0.06) 0%, rgba(232, 213, 163, 0) 42%), linear-gradient(305deg, rgba(250, 247, 240, 0.05) 0%, rgba(250, 247, 240, 0) 36%)",
         }}
       />
       <div
-        className="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl"
-        style={{ background: "rgba(201, 168, 76, 0.15)" }}
-      />
-      <div
-        className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl"
-        style={{ background: "rgba(232, 213, 163, 0.1)" }}
-      />
-      <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-30"
         style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.58) 100%)",
+          backgroundImage:
+            "repeating-linear-gradient(0deg, rgba(130,102,49,0.035) 0px, rgba(130,102,49,0.035) 1px, transparent 1px, transparent 5px)",
         }}
       />
 
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-12 px-10">
-        <div className="flex flex-col items-center gap-4">
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="relative h-[58%] px-6 pt-[9%] text-center">
+          <p
+            className="text-[10px] font-semibold uppercase tracking-[0.09em]"
+            style={{ color: "#876e34" }}
+          >
+            Peace-Driven Leader
+          </p>
+
+          <p className="mt-4 text-[11px] uppercase tracking-[0.14em]" style={{ color: "#7d6430" }}>
+            The
+          </p>
+          <h1
+            className="text-[33px] font-bold leading-[0.95]"
+            style={{
+              color: "#1f2b25",
+              fontFamily: "var(--font-serif)",
+              letterSpacing: "0.02em",
+            }}
+          >
+            PEACE-DRIVEN
+          </h1>
+          <h1
+            className="text-[33px] font-bold leading-[0.95]"
+            style={{
+              color: "#1f2b25",
+              fontFamily: "var(--font-serif)",
+              letterSpacing: "0.02em",
+            }}
+          >
+            LEADER
+          </h1>
+
+          <p
+            className={`${accentScript.className} text-[44px] leading-none mt-1`}
+            style={{ color: "#b9923c" }}
+          >
+            Playbook
+          </p>
+
           <div
-            className="relative w-[78px] h-[78px] rounded-full p-[7px] border"
+            className="mx-auto mt-2 inline-flex items-center justify-center rounded-full px-4 py-1"
             style={{
-              borderColor: "rgba(232, 213, 163, 0.55)",
-              background:
-                "radial-gradient(circle at 50% 30%, rgba(250, 247, 240, 0.22), rgba(20, 41, 31, 0.85))",
-              boxShadow: "0 10px 24px rgba(0, 0, 0, 0.35)",
+              background: "linear-gradient(90deg, #c9a84c, #b18d37)",
+              color: "#2a2418",
+              fontSize: "11px",
+              fontWeight: 700,
             }}
           >
-            <div
-              className="w-full h-full rounded-full overflow-hidden"
-              style={{ background: "rgba(250, 247, 240, 0.96)" }}
-            >
-              <Image
-                src="/assets/logo.png"
-                alt="Peace-Driven Leader logo"
-                fill
-                className="object-contain p-2"
-                priority
-              />
-            </div>
+            Leadership Stabilization System
           </div>
 
           <p
-            className="text-[10px] uppercase tracking-[0.3em] font-semibold"
-            style={{ color: "var(--brand-pale-gold)" }}
+            className="mt-2 text-[10px] uppercase tracking-[0.1em]"
+            style={{ color: "rgba(134, 110, 52, 0.72)" }}
           >
-            Personal Wellness
+            Executive Alignment Edition
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-5">
-
-          <div className="text-center flex flex-col gap-1 mt-1">
-            <p
-              className={`${accentScript.className} text-[30px] leading-none`}
-              style={{ color: "var(--brand-pale-gold)" }}
-            >
-              The
-            </p>
-            <h1
-              className="text-[2rem] font-bold leading-tight"
-              style={{
-                color: "var(--brand-cream)",
-                textShadow: "0 3px 16px rgba(0, 0, 0, 0.55)",
-                letterSpacing: "0.03em",
-              }}
-            >
-              PEACE-DRIVEN
-            </h1>
-            <h1
-              className="text-[2rem] font-bold leading-tight"
-              style={{
-                color: "var(--brand-cream)",
-                textShadow: "0 3px 16px rgba(0, 0, 0, 0.55)",
-                letterSpacing: "0.03em",
-              }}
-            >
-              LEADER
-            </h1>
-            <h2
-              className="text-lg font-semibold mt-1 uppercase"
-              style={{
-                color: "var(--brand-gold)",
-                letterSpacing: "0.14em",
-              }}
-            >
-              Playbook
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-3 w-44">
-            <div
-              className="flex-1 h-px"
-              style={{ background: "rgba(232, 213, 163, 0.7)" }}
-            />
-            <span style={{ color: "var(--brand-gold)", fontSize: "11px" }}>*</span>
-            <div
-              className="flex-1 h-px"
-              style={{ background: "rgba(232, 213, 163, 0.7)" }}
-            />
-          </div>
-
-          <p
-            className="text-[11px] text-center uppercase"
-            style={{
-              color: "rgba(232, 213, 163, 0.86)",
-              letterSpacing: "0.17em",
-            }}
-          >
-            Wellness &amp; Reflection
-          </p>
-        </div>
-
-        <p
-          className="text-[10px] text-center uppercase"
+        <div
+          className="relative flex-1 rounded-t-[34px] overflow-hidden border-t px-6 pb-[7.5%] pt-[22%]"
           style={{
-            color: "rgba(232, 213, 163, 0.72)",
-            letterSpacing: "0.15em",
+            borderColor: "rgba(210, 177, 90, 0.65)",
+            boxShadow: "0 -10px 24px rgba(20, 41, 31, 0.22)",
+            background:
+              "linear-gradient(175deg, #28473a 0%, #1e3a2f 58%, #162e25 100%)",
           }}
         >
-          Open and <span className={accentScript.className}>Explore</span>
-        </p>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.2) 0%, rgba(201, 168, 76, 0) 46%)",
+            }}
+          />
+          <div
+            className="absolute inset-x-0 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(232, 213, 163, 0.6), transparent)",
+            }}
+          />
+
+          <div
+            className="relative text-center"
+            style={{ textShadow: "0 3px 12px rgba(0, 0, 0, 0.34)" }}
+          >
+            <p
+              className="text-[28px] font-bold leading-[1.1]"
+              style={{ color: "var(--brand-pale-gold)", fontFamily: "var(--font-serif)" }}
+            >
+              Where Vision Gets Protected
+            </p>
+            <p
+              className="text-[28px] font-bold leading-[1.1]"
+              style={{ color: "var(--brand-pale-gold)", fontFamily: "var(--font-serif)" }}
+            >
+              and Execution Stays Consistent
+            </p>
+
+            <div className="mt-2 h-px w-full" style={{ background: "rgba(201, 168, 76, 0.45)" }} />
+            <p
+              className="mt-1 text-[11px] uppercase tracking-[0.11em]"
+              style={{ color: "rgba(232, 213, 163, 0.85)" }}
+            >
+              A Peace-Driven Leader Command System
+            </p>
+          </div>
+        </div>
       </div>
+
+      <Image
+        src="/assets/logo.png"
+        alt="Peace-Driven Leader logo emblem"
+        width={150}
+        height={150}
+        className="absolute left-1/2 -translate-x-1/2 top-[49.4%] drop-shadow-[0_12px_18px_rgba(0,0,0,0.24)] z-10"
+        priority
+      />
 
       {[
         "top-4 left-4",
@@ -177,7 +174,7 @@ export default function PlaybookCoverPage() {
           width="22"
           height="22"
           viewBox="0 0 24 24"
-          className={`absolute ${pos} opacity-50`}
+          className={`absolute ${pos} opacity-45`}
           fill="none"
         >
           <path

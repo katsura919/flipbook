@@ -10,9 +10,11 @@ import InteractiveSnapshotPage from "./pages/InteractiveSnapshotPage";
 import InteractiveHealthTrackerPage from "./pages/InteractiveHealthTrackerPage";
 import InteractiveHabitsPage from "./pages/InteractiveHabitsPage";
 import InteractiveInsightsPage from "./pages/InteractiveInsightsPage";
+import InteractiveGrowthTrendsPage from "./pages/InteractiveGrowthTrendsPage";
 import InteractiveReflectionPage from "./pages/InteractiveReflectionPage";
+import InteractiveActionPlanPage from "./pages/InteractiveActionPlanPage";
 
-const TOTAL_PAGES = 8;
+const TOTAL_PAGES = 10;
 
 export default function FlipBook() {
   const bookRef = useRef<any>(null);
@@ -97,7 +99,9 @@ export default function FlipBook() {
                 <div><InteractiveHealthTrackerPage pageId="wellness-tracker" /></div>
                 <div><InteractiveHabitsPage pageId="wellness-habits" /></div>
                 <div><InteractiveInsightsPage pageId="wellness-insights" /></div>
+                <div><InteractiveGrowthTrendsPage pageId="wellness-growth-trends" /></div>
                 <div><InteractiveReflectionPage pageId="wellness-reflection" /></div>
+                <div><InteractiveActionPlanPage pageId="wellness-action-plan" /></div>
                 <div><PlaybookBackCover /></div>
               </HTMLFlipBook>
             </div>

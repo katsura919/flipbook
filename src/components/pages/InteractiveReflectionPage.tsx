@@ -4,9 +4,6 @@ import { Great_Vibes } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 
 interface PageData {
-  prompt1: string;
-  prompt2: string;
-  prompt3: string;
   grateful1: string;
   grateful2: string;
   grateful3: string;
@@ -14,9 +11,6 @@ interface PageData {
 }
 
 const defaults: PageData = {
-  prompt1: "What made you feel your best this week?",
-  prompt2: "What habits do you want to improve?",
-  prompt3: "What are you most proud of?",
   grateful1: "",
   grateful2: "",
   grateful3: "",
@@ -29,8 +23,6 @@ const accentScript = Great_Vibes({
   display: "swap",
 });
 
-const prompts = ["prompt1", "prompt2", "prompt3"] as const;
-
 export default function InteractiveReflectionPage({ pageId }: { pageId: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<PageData>(defaults);
@@ -41,7 +33,8 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
     const saved = localStorage.getItem(`flipbook-page-${pageId}`);
     if (saved) {
       try {
-        setData(JSON.parse(saved));
+        const parsed = JSON.parse(saved) as Partial<PageData>;
+        setData({ ...defaults, ...parsed });
       } catch {}
     }
     setLoaded(true);
@@ -165,32 +158,6 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
           <div className="flex-1 h-px" style={{ background: "rgba(44, 58, 46, 0.2)" }} />
         </div>
 
-        <div className="grid grid-cols-1 gap-1.5">
-          {prompts.map((field, i) => (
-            <div
-              key={field}
-              className="rounded-xl px-3 py-1.5 flex items-center gap-2"
-              style={{
-                background: "rgba(250, 247, 240, 0.64)",
-                border: "1px solid rgba(44, 58, 46, 0.18)",
-              }}
-            >
-              <span
-                className="text-xs font-bold shrink-0"
-                style={{ color: "var(--brand-gold)", minWidth: "14px" }}
-              >
-                {i + 1}.
-              </span>
-              <input
-                value={data[field]}
-                onChange={(e) => update(field, e.target.value)}
-                className="bg-transparent text-xs leading-relaxed focus:outline-none w-full"
-                style={{ color: "var(--brand-charcoal)" }}
-              />
-            </div>
-          ))}
-        </div>
-
         <div
           className="rounded-2xl px-3 py-2 flex-1 min-h-0 flex flex-col gap-1"
           style={{
@@ -225,7 +192,7 @@ export default function InteractiveReflectionPage({ pageId }: { pageId: string }
           className="absolute bottom-3 right-5 text-xs"
           style={{ color: "rgba(44, 58, 46, 0.45)", fontFamily: "var(--font-serif)" }}
         >
-          - 07 -
+          - 08 -
         </p>
       </div>
     </div>
