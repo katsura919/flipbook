@@ -1,0 +1,137 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+interface PageData {
+  prompt1: string;
+  prompt2: string;
+  prompt3: string;
+  prompt4: string;
+  prompt5: string;
+  prompt6: string;
+  journal: string;
+}
+
+const defaults: PageData = {
+  prompt1: "What made you feel your best this week?",
+  prompt2: "What habits do you want to improve?",
+  prompt3: "What are you most proud of?",
+  prompt4: "What will you do differently next week?",
+  prompt5: "How close are you to your wellness goal?",
+  prompt6: "What does feeling healthy mean to you?",
+  journal: "",
+};
+
+export default function InteractiveReflectionPage({ pageId }: { pageId: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<PageData>(defaults);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`flipbook-page-${pageId}`);
+    if (saved) {
+      try { setData(JSON.parse(saved)); } catch {}
+    }
+    setLoaded(true);
+  }, [pageId]);
+
+  useEffect(() => {
+    if (loaded) localStorage.setItem(`flipbook-page-${pageId}`, JSON.stringify(data));
+  }, [data, loaded, pageId]);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const stop = (e: Event) => {
+      if ((e.target as HTMLElement).closest("input, textarea, label, button")) {
+        e.stopPropagation();
+      }
+    };
+    el.addEventListener("mousedown", stop);
+    el.addEventListener("touchstart", stop);
+    return () => {
+      el.removeEventListener("mousedown", stop);
+      el.removeEventListener("touchstart", stop);
+    };
+  }, []);
+
+  const update = (field: keyof PageData, value: string) =>
+    setData((prev) => ({ ...prev, [field]: value }));
+
+  const prompts = ["prompt1", "prompt2", "prompt3", "prompt4", "prompt5", "prompt6"] as const;
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full h-full relative overflow-hidden flex flex-col"
+      style={{ background: "linear-gradient(160deg, #fff8e1, #fff3e0, #fce4ec)" }}
+    >
+      {/* Dot pattern */}
+      <div
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #ffcc80 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col h-full px-8 py-6 gap-3">
+        {/* Header */}
+        <div className="text-center">
+          <span className="text-2xl">🪞</span>
+          <h2 className="text-lg font-bold mt-0.5" style={{ color: "#bf360c", fontFamily: "Georgia, serif" }}>
+            Reflection
+          </h2>
+          <div className="flex items-center gap-2 mx-auto w-28 mt-1">
+            <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.25)" }} />
+            <span style={{ color: "#ff8a65", fontSize: "10px" }}>✦</span>
+            <div className="flex-1 h-px" style={{ background: "rgba(191,54,12,0.25)" }} />
+          </div>
+        </div>
+
+        {/* Prompts — editable */}
+        <div className="flex flex-col gap-1.5">
+          {prompts.map((field, i) => (
+            <div
+              key={field}
+              className="rounded-xl px-3 py-1.5 flex items-center gap-2"
+              style={{ background: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,138,101,0.2)" }}
+            >
+              <span className="text-xs font-bold shrink-0" style={{ color: "#ff8a65", minWidth: "14px" }}>
+                {i + 1}.
+              </span>
+              <input
+                value={data[field]}
+                onChange={(e) => update(field, e.target.value)}
+                className="bg-transparent text-xs leading-relaxed focus:outline-none w-full"
+                style={{ color: "#5d4037" }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Journal space */}
+        <div
+          className="rounded-xl px-3 py-2 flex-1 flex flex-col gap-1"
+          style={{ background: "rgba(255,138,101,0.06)", border: "1px dashed rgba(255,138,101,0.35)" }}
+        >
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs">✏️</span>
+            <p className="text-xs italic" style={{ color: "#a1887f" }}>Write your thoughts below...</p>
+          </div>
+          <textarea
+            value={data.journal}
+            onChange={(e) => update("journal", e.target.value)}
+            placeholder="Your thoughts..."
+            className="bg-transparent text-xs leading-relaxed resize-none focus:outline-none flex-1 w-full"
+            style={{ color: "#5d4037", fontFamily: "Georgia, serif" }}
+          />
+        </div>
+
+        <p className="absolute bottom-4 right-6 text-xs" style={{ color: "#d7b8a0", fontFamily: "Georgia, serif" }}>
+          — 04 —
+        </p>
+      </div>
+    </div>
+  );
+}
